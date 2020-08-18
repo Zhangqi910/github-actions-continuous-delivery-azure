@@ -24,6 +24,9 @@ jobs:
     if: contains(github.event.pull_request.labels.*.name, 'spin up environment')
 
     steps:
+      - name: change Azure site
+        run: az cloud set -n AzureChinaCloud
+        
       - name: Checkout repository
         uses: actions/checkout@v2
 
@@ -58,6 +61,9 @@ jobs:
     if: contains(github.event.pull_request.labels.*.name, 'destroy environment')
 
     steps:
+      - name: change Azure site
+        run: az cloud set -n AzureChinaCloud
+        
       - name: Checkout repository
         uses: actions/checkout@v2
 
