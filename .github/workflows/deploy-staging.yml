@@ -57,6 +57,9 @@ jobs:
     needs: Build-Docker-Image
     name: Deploy app container to Azure
     steps:
+      - name: change Azure site
+        run: az cloud set -n AzureChinaCloud
+        
       - name: "Login via Azure CLI"
         uses: azure/login@v1
         with:
